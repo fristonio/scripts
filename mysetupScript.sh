@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Update Upgrade
 sudo apt-get update
 sudo apt-get upgrade
