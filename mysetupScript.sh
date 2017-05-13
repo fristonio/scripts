@@ -67,3 +67,21 @@ rvm rubygems current &&
 gem install bundle &&
 bundle install
 
+#Composer
+curl -sS https://getcomposer.org/installer | php &&
+sudo mv composer.phar /usr/local/bin/composer
+
+#NPM
+sudo apt-get install -y npm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+source ~/.zshrc
+# enter the version you want to install
+nvm install v7.10.0
+nvm alias default 4.7.3
+clear
+echo ""
+echo "===================="
+echo " TIME FOR A REBOOT! "
+echo "===================="
+echo ""
+
