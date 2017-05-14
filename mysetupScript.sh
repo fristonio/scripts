@@ -79,7 +79,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | b
 source ~/.zshrc
 # enter the version you want to install
 nvm install v7.10.0
-nvm alias default 4.7.3
+nvm alias default7.10.0
 clear
 echo ""
 echo "===================="
