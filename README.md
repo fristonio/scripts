@@ -28,3 +28,7 @@
     * Run `nohup ./feeder.py > /dev/null 2>&1 &` to run the program in background
     * Add the command in cronJob @reboot to get it running every time you log in 
 
+## sendSMS :
+* A python script that uses way2sms to send msg on the go.
+* Just download the script create config.json according to sample.config.json using way2sms credentials.
+* Run the script using `./sendSMS.py` Enter the msg and recipient.
