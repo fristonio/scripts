@@ -24,16 +24,24 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BEBDCB318
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
 sudo add-apt-repository ppa:wireshark-dev/stable -y
+
 #Google-Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+# sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 #Heroku
 sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
 curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
 
+# Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
 
 # Update Repos.
+sudo apt-get update
+
+
 sudo apt-get install -y terminator
 sudo apt-get install -y ffmpeg
 sudo apt-get install -y youtube-dl
@@ -54,6 +62,12 @@ sudo apt-get install -y traceroute
 sudo apt-get install -y tshark
 sudo apt-get install -y nmap
 sudo pip install virtualenv
+sudo apt-get install -y docker-ce
+sudo apt-get install -y firefox
+
+# jupyter notebook
+python3 -m pip install --upgrade pip
+python3 -m pip install jupyter
 
 #ZSH and oh-my-zsh
 sudo apt-get install -y zsh &&
@@ -76,10 +90,15 @@ sudo mv composer.phar /usr/local/bin/composer
 #NPM
 sudo apt-get install -y npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 source ~/.zshrc
+source ~/.bashrc
 # enter the version you want to install
-nvm install v7.10.0
-nvm alias default7.10.0
+nvm install node
+nvm use node
 clear
 echo ""
 echo "===================="
